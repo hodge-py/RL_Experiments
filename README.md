@@ -2,6 +2,11 @@
 
 Various programs using reinforment learning techniques
 
-## mazeQ.py
+## Q-Learning
+
+### mazeQ.py
 
 Uses Q learning to navigate a maze. Passable at the moment but still has some inefficiencies.
+
+
+## Policy Gradient
