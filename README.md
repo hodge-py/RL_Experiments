@@ -8,5 +8,4 @@ Various programs using reinforment learning techniques
 
 Uses Q learning to navigate a maze. Passable at the moment but still has some inefficiencies.
 
-
 ## Policy Gradient
