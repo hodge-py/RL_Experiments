@@ -49,16 +49,28 @@ for i in range(1000):
 
 
 masterArr = np.array([
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
- [1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
- [0, 0, 1, 1, 1, 0, 0, 1, 0, 0],
- [1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
- [0, 0, 1, 0, 0, 0, 0, 1, 1, 1],
- [0, 0, 1, 0, 0, 1, 1, 1, 0, 0],
- [0, 0, 1, 0, 0, 1, 1, 0, 1, 0],
- [0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
- [0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
- [0, 0, 0, 0, 1, 1, 1, 0, 0, 0]])
+[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+[1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+[0, 0, 1, 1, 1, 0, 0, 1, 0, 0],
+[1, 1, 1, 1, 1, 0, 0, 1, 0, 0],
+[0, 0, 1, 0, 0, 0, 0, 1, 1, 1],
+[0, 0, 1, 0, 0, 1, 1, 1, 0, 0],
+[0, 0, 1, 0, 0, 1, 1, 0, 1, 0],
+[0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
+[0, 0, 0, 0, 1, 1, 1, 0, 0, 0]])
+
+masterArr2 = np.array([
+[0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+[1, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+[1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+[0, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+[0, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+[0, 1, 1, 0, 0, 0, 0, 0, 1, 1],
+[0, 1, 1, 1, 0, 1, 1, 0, 1, 1],
+[0, 0, 0, 0, 0, 1, 1, 0, 0, 0]])
  
 print(masterArr.shape)
 #maze = plt.imshow(masterArr)
@@ -164,7 +176,7 @@ class MazeSolver:
 
       if counter > 4:
         self.qTable[self.curState][choices] = self.qTable[self.curState][choices] + .1*(self.reward()["invalid"] + .99*self.qTable[self.curState+1].max() - self.qTable[self.curState][choices])
-        #print("invalidddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+        #print("invalidd")
         return "error"
 
     return choices
@@ -203,7 +215,7 @@ class MazeSolver:
 
         if self.x == self.size-1 and self.y == self.size-1:
           self.qTable[self.curState][choices] = self.qTable[self.curState][choices] + .1*(self.reward()["complete"] + .99*self.qTable[self.curState+1].max() - self.qTable[self.curState][choices])
-          #print("yaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1")
+          #print("yaa1")
           break
         elif choices == "error":
           #print("moooo")
@@ -228,6 +240,6 @@ class MazeSolver:
 
 
 
-mazer = MazeSolver(masterArr)
+mazer = MazeSolver(masterArr2)
 
 print(mazer.mainRun())
