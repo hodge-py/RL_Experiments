@@ -90,7 +90,7 @@ class MazeSolver:
   
   def reward(self):
     rewardVal = {
-      "valid": 0,
+      "valid": -.001,
       "invalid": -.4,
       "repeat": -.1,
       "complete": 5
